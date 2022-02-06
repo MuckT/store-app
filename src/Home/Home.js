@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Counter } from '../Counter/Counter';
 
 const Home = () => {
   const navigation = useNavigation(); 
@@ -19,6 +20,7 @@ const Home = () => {
           navigation.navigate('Categories')
         }
       />
+      <Counter />
     </View>
   );
 }

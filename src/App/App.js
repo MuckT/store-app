@@ -1,21 +1,24 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import MyNavigation from '../Navigator/Navigator';
+import store from './store'
+import { Provider } from 'react-redux'
+import { persistStore } from "redux-persist"
+import { PersistGate } from "redux-persist/integration/react"
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-const CategoriesStack = createNativeStackNavigator();
-const CartStack = createNativeStackNavigator();
+let persistor = persistStore(store)
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <MyNavigation />
-      </NavigationContainer>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <NavigationContainer>
+            <MyNavigation />
+          </NavigationContainer>
+        </PersistGate>
+      </Provider>
     </SafeAreaProvider>
   );
 }
