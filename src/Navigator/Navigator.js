@@ -33,7 +33,9 @@ export default function MyNavigation() {
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Categories" component={CategoryStackScreen} />
       <Tab.Screen name="Cart" component={CartStackScreen} />
-      <Tab.Screen name="Home" component={Home} />
+      {/* <Tab.Screen name="Home" component={Home} options={{
+          tabBarStyle: { height: 0, width: 0 }
+        }}/> */}
     </Tab.Navigator>
   )
 };
