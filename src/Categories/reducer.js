@@ -16,6 +16,6 @@ export const categoriesSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { selectCategory } = counterSlice.actions
+export const { selectCategory } = categoriesSlice.actions
 
 export default categoriesSlice.reducer
