@@ -4,6 +4,7 @@ import * as React from 'react';
 import Cart from '../Cart/Cart';
 import Categories from '../Categories/Categories';
 import Home from '../Home/Home';
+import Products from '../Products/Products';
 
 const Tab = createBottomTabNavigator();
 const CartStack = createNativeStackNavigator();
@@ -14,6 +15,7 @@ function CategoryStackScreen() {
     <CategoryStack.Navigator>
       <CategoryStack.Screen name="Categories" component={Categories} />
       <CategoryStack.Screen name="Home" component={Home} />
+      <CategoryStack.Screen name="Products" component={Products} />
     </CategoryStack.Navigator>
   );
 }

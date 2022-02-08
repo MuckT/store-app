@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist'
 import counterReducer from '../Counter/counterSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import categoriesReducer from '../Categories/reducer'
+import productsReducer from '../Products/reducer'
 
 const persistConfig = {
 	key: "root",
@@ -11,7 +12,8 @@ const persistConfig = {
 }
 const rootReducer = combineReducers({
 	counter: counterReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
+  products: productsReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

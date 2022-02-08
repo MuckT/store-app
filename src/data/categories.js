@@ -10,11 +10,6 @@ export const categories = [
     id: '46468ce8-96ac-4716-a38e-0f0842a44eb6'
   },
   {
-    name: 'Kids',
-    description: "Kids' apparel, accessories & shoes.",
-    id: 'c251ef69-c381-4ebd-a39d-b70e999c706c'
-  },
-  {
     name: "Men's Clothing",
     description: 'Mens apparel, accessories & shoes.',
     id: '3fa1bdf2-11a6-4719-8a20-467848c305ed'
