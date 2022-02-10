@@ -1,10 +1,9 @@
-import React from 'react';
-import { Button, View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { Counter } from '../Counter/Counter';
+import React from 'react'
+import { Button, View, Text } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 const Home = () => {
-  const navigation = useNavigation(); 
+  const navigation = useNavigation() 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text> Test </Text>
@@ -20,9 +19,8 @@ const Home = () => {
           navigation.navigate('Categories')
         }
       />
-      <Counter />
     </View>
-  );
+  )
 }
 
 export default Home
