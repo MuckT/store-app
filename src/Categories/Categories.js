@@ -1,17 +1,21 @@
-import React from 'react';
-import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { categories } from '../data/categories';
-import { useOrientation } from '../utils/useOrientation';
-import { selectCategory } from './reducer';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
+import React, { useEffect } from 'react'
+import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
+import { useOrientation } from '../utils/useOrientation'
+import { reloadCategories, selectCategory } from './reducer'
 
 const Categories = () => {
   const dispatch = useDispatch()
-  const navigation = useNavigation(); 
+  const navigation = useNavigation() 
   const activeCategory = useSelector(state => state.categories.activeCategory)
+  const categories = useSelector(state => state.categories.categoryList)
   const orientation = useOrientation()
   const numColumns = orientation === 'PORTRAIT' ? 2 : 4
+
+  useEffect(() => {
+    dispatch(reloadCategories())
+  }, [])
 
   const Item = ({ name, category }) => (
     <View style={styles.item}>
@@ -26,16 +30,17 @@ const Categories = () => {
         <Image source={require('../assets/sample-image-150x150.png')}/>
       </TouchableOpacity>
     </View>
-  );
+  )
 
   const renderItem = ({ item }) => (
     <Item name={item.name} category={item}/>
-  );
+  )
   
 
   return (
     <SafeAreaView style={styles.container} scrollIndicatorInsets={{ right: 1 }}>
       <FlatList
+        columnWrapperStyle={{justifyContent:'space-around'}}
         showsVerticalScrollIndicator={false}
         data={categories}
         renderItem={renderItem}
@@ -45,7 +50,7 @@ const Categories = () => {
         horizontal={false}
       />
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
