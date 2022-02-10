@@ -42,3 +42,9 @@ yarn android
 [Redux Toolkit Quick Start](https://redux-toolkit.js.org/tutorials/quick-start)
 
 [Getting an error "A non-serializable value was detected in the state" when using redux toolkit - but NOT with normal redux](https://stackoverflow.com/a/63244831/7967484)
+
+[Reset state to initial with redux-toolkit](https://stackoverflow.com/questions/59424523/reset-state-to-initial-with-redux-toolkit)
+
+[🏟️ Redux Toolkit 🏟️ - Rowadz](https://www.youtube.com/playlist?list=PLM0LBHjz37LXSASzEv81f3tGptAsEGQUM)
+
+[redux toolkit yt](https://github.com/MohammedAl-Rowad/react-redux-toolkit-yt)
