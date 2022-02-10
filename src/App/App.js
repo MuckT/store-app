@@ -1,11 +1,11 @@
-import { NavigationContainer } from '@react-navigation/native';
-import * as React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import MyNavigation from '../Navigator/Navigator';
-import store from './store'
+import { NavigationContainer } from '@react-navigation/native'
+import * as React from 'react'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { persistStore } from "redux-persist"
 import { PersistGate } from "redux-persist/integration/react"
+import MyNavigation from '../Navigator/Navigator'
+import store from './store'
 
 let persistor = persistStore(store)
 
@@ -20,5 +20,5 @@ export default function App() {
         </PersistGate>
       </Provider>
     </SafeAreaProvider>
-  );
+  )
 }

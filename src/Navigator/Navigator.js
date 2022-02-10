@@ -1,14 +1,14 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as React from 'react';
-import Cart from '../Cart/Cart';
-import Categories from '../Categories/Categories';
-import Home from '../Home/Home';
-import Products from '../Products/Products';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import * as React from 'react'
+import Cart from '../Cart/Cart'
+import Categories from '../Categories/Categories'
+import Home from '../Home/Home'
+import Products from '../Products/Products'
 
-const Tab = createBottomTabNavigator();
-const CartStack = createNativeStackNavigator();
-const CategoryStack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator()
+const CartStack = createNativeStackNavigator()
+const CategoryStack = createNativeStackNavigator()
 
 function CategoryStackScreen() {
   return (
@@ -17,7 +17,7 @@ function CategoryStackScreen() {
       <CategoryStack.Screen name="Home" component={Home} />
       <CategoryStack.Screen name="Products" component={Products} />
     </CategoryStack.Navigator>
-  );
+  )
 }
 
 function CartStackScreen() {
@@ -26,7 +26,7 @@ function CartStackScreen() {
       <CartStack.Screen name="Cart" component={Cart} />
       <CartStack.Screen name="Home" component={Home} />
     </CartStack.Navigator>
-  );
+  )
 }
 
 
@@ -40,4 +40,4 @@ export default function MyNavigation() {
         }}/> */}
     </Tab.Navigator>
   )
-};
+}
