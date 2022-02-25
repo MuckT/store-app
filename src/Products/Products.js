@@ -1,33 +1,37 @@
-import React from 'react';
-import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { useOrientation } from '../utils/useOrientation';
-import { selectProduct } from './reducer';
-import { products } from '../data/products';
+import React from 'react'
+import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Button } from 'react-native-elements'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '../Cart/reducer'
+import { products } from '../data/products'
+import { useOrientation } from '../utils/useOrientation'
 
-const Products = ({ navigation }) => {
+
+const Products = () => {
   const dispatch = useDispatch()
   const activeCategory = useSelector(state => state.categories.activeCategory)
   const filteredProducts = products.filter(product => product.category === activeCategory.name)
-  console.log('filteredProducts',filteredProducts)
   const orientation = useOrientation()
   const numColumns = orientation === 'PORTRAIT' ? 1 : 2
 
   const Item = ({ name, product }) => (
     <View style={styles.item}>
-      <TouchableOpacity 
-        onPress={() => {
-          dispatch(selectProduct(product))
-        }}>
+      <TouchableOpacity>
         <Text style={styles.title}>{name}</Text>
         <Image source={require('../assets/sample-image-300x300.png')}/>
+        <Button 
+          onPress={() => {
+            dispatch(addToCart(product))
+          }}
+          title="Add to Cart" 
+        />
       </TouchableOpacity>
     </View>
-  );
+  )
 
   const renderItem = ({ item }) => (
     <Item name={item.name} product={item}/>
-  );
+  )
 
   return (
     <SafeAreaView style={styles.container}>
@@ -41,7 +45,7 @@ const Products = ({ navigation }) => {
         horizontal={false}
       />
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({

@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { categories } from '../data/categories'
 
 const initialState = {
   activeCategory: {},
-  categoryList: []
+  categoryList: categories
 }
 
 export const categoriesSlice = createSlice({
@@ -12,10 +13,13 @@ export const categoriesSlice = createSlice({
     selectCategory: (state, action) => {
       state.activeCategory = action.payload
     },
+    reloadCategories(state) {
+      Object.assign(state.categoryList, initialState.categoryList)
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { selectCategory } = categoriesSlice.actions
+export const { selectCategory, reloadCategories } = categoriesSlice.actions
 
 export default categoriesSlice.reducer
